@@ -1,0 +1,7 @@
+{{#each model key="id" as |gallery|}}
+  <div class="col-xs-6 col-md-3">
+    {{gallery-view model=gallery}}
+  </div>
+{{/each}}
+
+{{outlet}}

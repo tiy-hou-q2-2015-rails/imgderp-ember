@@ -1,0 +1,27 @@
+<div class="row">
+    <h6>Created: {{ago model.createdAtDate}}</h6>
+    <h6>Likes: {{model.likes}}</h6>
+    {{#gallery-like model=model action="markAsLiked" param=model}}
+      {{model.likes}}
+    {{/gallery-like}}
+</div>
+
+<div class="row">
+{{#each model.images key="id" as |image|}}
+  <div class="col-xs-12">
+    <img {{bind-attr src='image.url'}} class="img-responsive">
+  </div>
+{{/each}}
+</div>
+
+{{comment-form submit="submitComment" gallery=model}}
+
+
+{{#each model.sortedComments key="id" as |comment|}}
+  <blockquote>
+    {{comment.text}}
+    -- <cite>{{comment.name}}</cite>
+  </blockquote>
+{{/each}}
+
+{{outlet}}

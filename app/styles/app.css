@@ -1,0 +1,14 @@
+Gallery-Like {
+  border-radius: 50%;
+  border: 0;
+  font-size: 5rem;
+  padding: 2rem;
+  background: green;
+  color: white;
+}
+Gallery-Like:hover {
+  cursor: pointer;
+}
+Gallery-Like.loading{
+  background: #cccccc;
+}
