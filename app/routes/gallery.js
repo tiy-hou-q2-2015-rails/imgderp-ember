@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   actions: {
     markAsLiked: function(gallery){
 
-      Ember.$.post("/api/gallery/" + gallery.id + "/like").then(function(){
+      Ember.$.post("/gallery/" + gallery.id + "/like").then(function(){
         gallery.reload();
         gallery.set('loading', false);
       });
@@ -16,7 +16,7 @@ export default Ember.Route.extend({
 
     submitComment: function(gallery, commentData){
       commentData.gallery_id = gallery.get('id');
-      Ember.$.post("/api/comments", commentData).then(function(){
+      Ember.$.post("/comments", commentData).then(function(){
         gallery.reload();
       })
     }
