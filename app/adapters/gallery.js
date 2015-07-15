@@ -3,10 +3,14 @@ import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
 
-  namespace: 'api/',
+  host: "https://imgderp-api.herokuapp.com/",
+  headers: {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
 
   urlForFindAll: function(){
-    return "/api/home";
+    return this._super("home");
   },
 
   pathForType: function(modelName) {
@@ -14,6 +18,8 @@ export default ApplicationAdapter.extend({
 
     if (decamelized === "gallery"){
       return "gallery";
+    } else if (decamelized === "home"){
+      return "home";
     } else {
       return Ember.String.pluralize(decamelized);
     }
