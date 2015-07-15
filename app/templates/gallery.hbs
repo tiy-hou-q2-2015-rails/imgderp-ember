@@ -9,7 +9,7 @@
 <div class="row">
 {{#each model.images key="id" as |image|}}
   <div class="col-xs-12">
-    <img {{bind-attr src='image.url'}} class="img-responsive">
+    <img src="{{image.url}}" class="img-responsive">
   </div>
 {{/each}}
 </div>
