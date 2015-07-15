@@ -3,8 +3,10 @@ import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
 
+  namespace: 'api/',
+
   urlForFindAll: function(){
-    return "/home";
+    return "/api/home";
   },
 
   pathForType: function(modelName) {
