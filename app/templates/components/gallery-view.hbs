@@ -1,4 +1,4 @@
 {{#link-to 'gallery' model}}
-  <img src="{{model.thumbnail}}" class="img-thumbnail img-responsive">
+  <img src="{{httpsize-url model.thumbnail}}" class="img-thumbnail img-responsive">
   {{yield}}
 {{/link-to}}

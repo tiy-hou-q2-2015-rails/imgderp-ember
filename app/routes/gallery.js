@@ -7,17 +7,21 @@ export default Ember.Route.extend({
   },
   actions: {
     markAsLiked: function(gallery){
-
-      Ember.$.post("/gallery/" + gallery.id + "/like").then(function(){
+      gallery.like().then(function(){
         gallery.reload();
         gallery.set('loading', false);
       });
     },
 
     submitComment: function(gallery, commentData){
-      commentData.gallery_id = gallery.get('id');
-      Ember.$.post("/comments", commentData).then(function(){
+      commentData.gallery = gallery;
+
+      let comment = this.store.createRecord('comment', commentData);
+      comment.save().then(function(){
+        commentData = {};
         gallery.reload();
+      }).catch(function(errors){
+        alert("Sorry", errors);
       })
     }
   }
